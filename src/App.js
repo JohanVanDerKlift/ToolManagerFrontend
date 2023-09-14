@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import {Route, Routes} from "react-router-dom";
+import Tools from "./pages/tools/tools";
+import AddTool from "./pages/addTool/AddTool";
+import Navbar from "./components/navbar/Navbar";
+import Menu from "./components/menu/Menu";
+import Footer from "./components/footer/Footer";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="main">
+      <Navbar/>
+      <div className="container">
+        <div className="menuContainer">
+          <Menu/>
+        </div>
+        <div className="contentContainer">
+          <Routes>
+            <Route path='/tools' element={<Tools/>}/>
+            <Route path='/add_tool' element={<AddTool/>}/>
+          </Routes>
+        </div>
+      </div>
+      <Footer/>
     </div>
   );
 }
